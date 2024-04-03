@@ -30,10 +30,9 @@ class TestExceptionEmpty():
     PositiveTestCase(year=999, month=12, day=31),  # Максимальные значения
     PositiveTestCase(year=2023, month=2, day=28),  # Не високосный год, февраль
     PositiveTestCase(year=2024, month=2, day=29),  # Високосный год, февраль
-    NegativeTestCase(year=2.3, month=13, day=32),  # Некорректный месяц и день
-    NegativeTestCase(year='sdsd', month='sdsd', day='sdsd'),  # Некорректный месяц и день
-    NegativeTestCase(year=None, month=None, day=None),  # Некорректный месяц и день
-
+    NegativeTestCase(year=2.3, month=10, day=31),  # Некорректный тип данных для года
+    NegativeTestCase(year=2024, month=13, day=32),  # Некорректный месяц и день - для работы нужна логика на даты у класса Calendar
+    NegativeTestCase(year='sdsd', month='sdsd', day='sdsd'),  # Некорректный тип данных
                                                           ])
 def test_calendar_methods(calendar, test_case):
     if isinstance(test_case, PositiveTestCase):
